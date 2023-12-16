@@ -6,4 +6,4 @@ psutil==5.8.0
 plotly==5.5.0
 tenacity==8.0.1
 boto3==1.9.148
-kubernetes==10.0.1
+kubernetes==10.0.
