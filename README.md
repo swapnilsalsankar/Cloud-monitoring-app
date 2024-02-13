@@ -9,9 +9,11 @@ This real-time DevOps project involved the end-to-end development and deployment
 git clone <repository_url>
 
 2 Install dependencies
+
 pip3 install -r requirements.txt
 
 3 Run the application
+
 python3 app.py
 
 **Part 2: Dockerizing the Flask application**
@@ -43,9 +45,11 @@ EXPOSE 5000
 CMD ["flask", "run"]
 
 2 Build the Docker image
+
 docker build -t <image_name> .
 
 3 Run the Docker container
+
 docker run -p 5000:5000 <image_name>
 
 **Part 3: Pushing the Docker image to ECR**
@@ -67,6 +71,7 @@ repository_uri = response['repository']['repositoryUri']
 print(repository_uri)
 
 2 Push the Docker image to ECR
+
 docker push <ecr_repo_uri>:<tag>
 
 **Part 4: Creating an EKS cluster and deploying the app using Python**
@@ -136,11 +141,12 @@ api_instance.create_namespaced_service(
 
 Change image on line 25 with your image Uri.
 Once you run this file by running “python3 eks.py” deployment and service will be created.
-Check by running following commands:
+
+**Check by running following commands:**
 
 kubectl get deployment -n default (check deployments)
 kubectl get service -n default (check service)
 kubectl get pods -n default (to check the pods)
 
-run the port-forward to expose the service
+**run the port-forward to expose the service**
 kubectl port-forward service/<service_name> 5000:5000
