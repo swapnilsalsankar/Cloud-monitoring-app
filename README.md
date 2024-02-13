@@ -12,22 +12,6 @@
 4. Create ECR repository using Python Boto3 and pushing Docker Image to ECR
 5. Learn Kubernetes and Create EKS cluster and Nodegroups
 6. Create Kubernetes Deployments and Services using Python!
-
-# **Youtube Video for step by step Demonstration!**
-
-[![Video Tutorial](https://img.youtube.com/vi/kBWCsHEcWnc/0.jpg)](https://youtu.be/kBWCsHEcWnc)
-
-
-## **Prerequisites** !
-
-(Things to have before starting the projects)
-
-- [x]  AWS Account.
-- [x]  Programmatic access and AWS configured with CLI.
-- [x]  Python3 Installed.
-- [x]  Docker and Kubectl installed.
-- [x]  Code editor (Vscode)
-
 # ✨Let’s Start the Project ✨
 
 ## **Part 1: Deploying the Flask application locally**
