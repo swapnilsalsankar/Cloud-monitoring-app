@@ -16,27 +16,27 @@ python3 app.py
 **Part 2: Dockerizing the Flask application**
 
 1 Create a Dockerfile
-# Use the official Python image as the base image
+**Use the official Python image as the base image**
 FROM python:3.9-slim-buster
 
-# Set the working directory in the container
+**Set the working directory in the container**
 WORKDIR /app
 
-# Copy the requirements file to the working directory
+**Copy the requirements file to the working directory**
 COPY requirements.txt .
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Copy the application code to the working directory
+**Copy the application code to the working directory**
 COPY . .
 
-# Set the environment variables for the Flask app
+**Set the environment variables for the Flask app**
 ENV FLASK_RUN_HOST=0.0.0.0
 
-# Expose the port on which the Flask app will run
+**Expose the port on which the Flask app will run**
 EXPOSE 5000
 
-# Start the Flask app when the container is run
+**Start the Flask app when the container is run**
 CMD ["flask", "run"]
 
 2 Build the Docker image
@@ -49,17 +49,17 @@ docker run -p 5000:5000 <image_name>
 
 1 Create an ECR repository
 
-# ECR using python
+**ECR using python**
 import boto3
 
-# Create an ECR client
+**Create an ECR client**
 ecr_client = boto3.client('ecr')
 
-# Create a new ECR repository
+**Create a new ECR repository**
 repository_name = 'my-ecr-repo'
 response = ecr_client.create_repository(repositoryName=repository_name)
 
-# Print the repository URI
+**Print the repository URI**
 repository_uri = response['repository']['repositoryUri']
 print(repository_uri)
 
@@ -74,16 +74,16 @@ docker push <ecr_repo_uri>:<tag>
 
 3 Create deployment and service
 
-# import client, config
+**import client, config**
 from kubernetes import client, config
 
-# Load Kubernetes configuration
+**Load Kubernetes configuration**
 config.load_kube_config()
 
-# Create a Kubernetes API client
+**Create a Kubernetes API client**
 api_client = client.ApiClient()
 
-# Define the deployment
+**Define the deployment**
 deployment = client.V1Deployment(
     metadata=client.V1ObjectMeta(name="my-flask-app"),
     spec=client.V1DeploymentSpec(
@@ -108,14 +108,14 @@ deployment = client.V1Deployment(
     )
 )
 
-# Create the deployment
+**Create the deployment**
 api_instance = client.AppsV1Api(api_client)
 api_instance.create_namespaced_deployment(
     namespace="default",
     body=deployment
 )
 
-# Define the service
+**Define the service**
 service = client.V1Service(
     metadata=client.V1ObjectMeta(name="my-flask-service"),
     spec=client.V1ServiceSpec(
@@ -124,7 +124,7 @@ service = client.V1Service(
     )
 )
 
-# Create the service
+**Create the service**
 api_instance = client.CoreV1Api(api_client)
 api_instance.create_namespaced_service(
     namespace="default",
