@@ -145,7 +145,9 @@ Once you run this file by running “python3 eks.py” deployment and service wi
 **Check by running following commands:**
 
 kubectl get deployment -n default (check deployments)
+
 kubectl get service -n default (check service)
+
 kubectl get pods -n default (to check the pods)
 
 **run the port-forward to expose the service**
