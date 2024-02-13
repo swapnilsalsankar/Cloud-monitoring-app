@@ -16,6 +16,7 @@ python3 app.py
 **Part 2: Dockerizing the Flask application**
 
 1 Create a Dockerfile
+
 **Use the official Python image as the base image**
 FROM python:3.9-slim-buster
 
