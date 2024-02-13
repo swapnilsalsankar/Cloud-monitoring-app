@@ -5,6 +5,7 @@ This real-time DevOps project involved the end-to-end development and deployment
 **Part 1: Deploying the Flask application locally**
 
 1 Clone the code 
+
 git clone <repository_url>
 
 2 Install dependencies
@@ -26,6 +27,7 @@ WORKDIR /app
 **Copy the requirements file to the working directory**
 COPY requirements.txt .
 
+**Install requirements text file**
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 **Copy the application code to the working directory**
